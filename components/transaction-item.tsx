@@ -3,7 +3,7 @@ import { HandCoins, Wallet, Landmark, PiggyBank } from "lucide-react";
 
 interface TransactionItemProps {
   type: "Income" | "Expense" | "Investment" | "Saving";
-  category: string;
+  category?: string;
   description: string;
   amount: number;
 }
