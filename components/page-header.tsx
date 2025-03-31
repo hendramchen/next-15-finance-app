@@ -1,19 +1,22 @@
+import useServerDarkMode from "@/hooks/use-server-dark-mode";
 import Link from "next/link";
+import DarkModeToggle from "./dark-mode-toggle";
 
 export default function PageHeader({ className = "" }) {
+  const theme = useServerDarkMode();
   return (
-    <header className={`flex justify-between items-center ${className}`}>
-      <Link
-        href="/dashboard"
-        className="text-xl hover:underline underline-offset-8 decoration-2"
-      >
-        Finance App
-      </Link>
+      <header className={`flex justify-between items-center ${className}`}>
+        <Link
+          href="/dashboard"
+          className="text-xl hover:underline underline-offset-8 decoration-2"
+        >
+          Finance App
+        </Link>
 
-      <div className="flex items-center space-x-4">
-        <div>Mode Toggle</div>
-        <div>User Dropdown</div>
-      </div>
-    </header>
+        <div className="flex items-center space-x-4">
+          <DarkModeToggle defaultMode={theme} />
+          <div>User Dropdown</div>
+        </div>
+      </header>
   );
 }
